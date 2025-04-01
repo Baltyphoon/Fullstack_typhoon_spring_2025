@@ -111,3 +111,4 @@ less_equal = a <= b #false
 # ginjin haritsuulalt
 result = 1 < 3 < 5 #true (1 < 3  and 3 < 5 gesentei adil )
 result = 5 > 3 < 1 # false (5 > 3 and 3 < 1 gesentei adil )
+

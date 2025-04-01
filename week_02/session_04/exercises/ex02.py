@@ -30,13 +30,13 @@ print(unique_numbers)
 
 num =42 
 
-string_number = str(42)
+string_number = str(num)
 print(string_number)
 
-float_number = float(42)
+float_number = float(num)
 print(float_number)
 
-bool_number = bool(42)
+bool_number = bool(num)
 print(bool_number)
 
 price = "19.99"
@@ -51,4 +51,7 @@ string_number1  = str(price)
 print(string_number1)
 string_number2 = str(quantity)
 print(string_number2)
+
+
+
 
