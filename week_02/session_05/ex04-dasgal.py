@@ -29,7 +29,7 @@ last_char = text[-1]
 print("Эхний тэмдэгт:", first_char)
 print("Зургаа дахь тэмдэгт:", sixth_char)
 print("Сүүлийн тэмдэгт:", last_char)
+print(f"first letter: {text[0]}")
+print(f"second letter: {text[1]}")
 
-words = "python programm"
-print(f"first word: {words[0]}")
-print(f"second word: {words[1]}")
+text1 = "python programm"
