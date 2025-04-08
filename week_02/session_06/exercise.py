@@ -9,3 +9,8 @@ else:
     print("Number is Positive")
 
 #dasgal 2
+
+year = int(input("Number of year ?"))
+if (year % 4 == 0 and year % 400 == 0):
+    print(str(year) + "ni undur jil ")
+

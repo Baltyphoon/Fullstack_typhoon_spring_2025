@@ -1,5 +1,7 @@
 total_purchase = float(input("Худалдан авалтын дүн: "))
 is_member = input("Та гишүүн үү? (Тийм/Үгүй): ").lower() == "тийм"
+# indentation - neg TAB hooson zai 
+
 if total_purchase >= 100:
     if is_member:
         discount = 0.2 # 20% хөнгөлөлт
@@ -15,6 +17,6 @@ else:
         discount = 0.05 # 5% хөнгөлөлт
     else:
         discount = 0 # Хөнгөлөлтгүй
-        
+
 final_price = total_purchase * (1 - discount)
 print(f"Таны төлөх дүн: {final_price:.2f}")

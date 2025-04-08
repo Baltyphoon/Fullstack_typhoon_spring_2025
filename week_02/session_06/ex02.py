@@ -17,6 +17,7 @@ else:
 
 # 
 score = int(input('Give me your grade: '))
+
 if score >= 90: 
     print("А үнэлгээ")
 elif score >= 80:
