@@ -3,7 +3,7 @@
 
 Кортеж болон түүний өөрчлөгдөхгүй шинж чанартай ажиллах дадлага.
 """
-
+# DSAGAL 2.1 
 
 def create_tuple():
     """
@@ -13,9 +13,9 @@ def create_tuple():
         tuple: 1-ээс 5 хүртэлх тоонуудыг агуулсан кортеж
     """
     # Таны код энд
-    pass
-
-
+    return (1, 2, 3, 4, 5)
+print(create_tuple()) # garalt (1, 2, 3, 4, 5)
+# DASGAL 2.2
 def tuple_to_list_and_back(my_tuple):
     """
     Кортежийг жагсаалт болгож, өөрчилж, дахин кортеж болго.
@@ -27,9 +27,14 @@ def tuple_to_list_and_back(my_tuple):
         tuple: Эхний болон сүүлийн элементүүд нь солигдсон шинэ кортеж
     """
     # Таны код энд
-    pass
+    jagsaalt = list(my_tuple)
+    if len(jagsaalt) >= 2:
+        jagsaalt[0], jagsaalt[-1] = jagsaalt[-1], jagsaalt[0]
+    kortej = tuple(jagsaalt)
+    return kortej
+print(tuple_to_list_and_back((1, 2, 3, 4))) #garalt (4, 2, 3, 1)
 
-
+# DASGAL 2.3 
 def tuple_unpacking(person_info):
     """
     Кортежийг задалж, форматласан тэмдэгт мөр буцаа.
@@ -41,9 +46,12 @@ def tuple_unpacking(person_info):
         str: "Нэр нь Нас настай бөгөөд Хот-д амьдардаг" гэх мэт форматласан тэмдэгт мөр
     """
     # Таны код энд
-    pass
+    ner, nas, hot = person_info
+    # return f"{ner} ni {nas} nastai buguud {hot}-d amidardag"
+    return(ner + " ni " + str(nas) + " nastai buguud " + hot + " -d amidarag")
+print(tuple_unpacking(("temuujin", 25, "Ulaanbaatar"))) # garalt temuujin ni 25 nastai buguud Ulaanbaatar -d amidarag
 
-
+# DASGAL 2.4
 def nested_tuple_access(nested_tuple):
     """
     Давхар кортеж бүтцээс элементүүдэд хандах.
@@ -58,9 +66,16 @@ def nested_tuple_access(nested_tuple):
     # Эхний дотоод кортежийн эхний элемент,
     # сүүлийн дотоод кортежийн сүүлийн элемент,
     # дундах дотоод кортежийн дундах элементийг агуулсан жагсаалт буцаа
-    pass
+    nested_tuple = ((1, 2, 3,), (4, 5, 6), (7, 8, 9))
+    ehniih = nested_tuple[0] [0]
+    dundah_kortej = nested_tuple[len(nested_tuple) // 2]
+    dundah_element = dundah_kortej[len(dundah_kortej) // 2]
+    suuliih = nested_tuple[-1] [-1]
+    return [ehniih, dundah_element, suuliih]
+print(nested_tuple_access(((1, 2, 3), (4, 5, 6), (7, 8, 9))))
 
 
+# DASGAL 2.5
 # Тест тохиолдлууд
 if __name__ == "__main__":
     # create_tuple функцийг шалгах
