@@ -141,4 +141,5 @@ def count_unique_words(text):
     
 
 text = "Bi Python hel surch baina. Python bol mash sonirholtoi hel."
-print(f"Davtagdashgui ugsiin too: {count_unique_words(text)}")
+print(f"Davtagdashgui ugsiin too: {count_unique_words(text)}") # Давтагдашгүй үгсийн тоо: 9
+

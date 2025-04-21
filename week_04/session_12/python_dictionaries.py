@@ -22,37 +22,52 @@ mixed_dict = {
 # dict() functionaar toli bichig uusgeh 
 person = dict(ner="Bold", nas=25, hot="darhan")
 
-# Tulhuu-utga hosloloos toli bichig uusgeh
+# Tulhuur-utga hosloloos toli bichig uusgeh
 items = [("alim", 3), ("banana", 5), ("jurj", 2)]
 fruit_count = dict(items)
 
-# 
-# 
-#
-# 
+# Toli bichgiin elemented handah 
+student = {"нэр": "Бат", "нас": 20, "хот": "Улаанбаатар"}
 
-
-
+# Tulhuureer handah
+name = student["нэр"]  # "Бат"
 
 # get() argiig ashiglah (tulhuur baihgui bol aldaa zaahgui)
-age = student.get("nas") 
-email = student.get("email")  
-email = student.get("email", "medeelel baihui")
+age = student.get("nas")  # 20 
+email = student.get("email")  # None (tulhuur baihgui)
+email = student.get("email", "medeelel baihui") # "medeelel baihgui"
 
 #toli bichgiin elementiig uurchluh
-student = {"ner"}
+student = {"ner": "Bat", "nas":20, "hot":"ulaanbaatar"}
+
+# Element uurchluh
+student["nas"] = 21
+
+# Shine element nemeh 
+student["mergejil"] = "Programist"
+
+# Olon element nemeh/uurchluh
+student.update({"нас": 22, "утас": "99112233", "хот": "Дархан"})
+print(student)
+# {'нэр': 'Бат', 'нас': 22, 'хот': 'Дархан', 'мэргэжил':
+# 'Програмист', 'утас': '99112233'}
+
+# Толь бичгийн элементийг устгах
+student = {"нэр": "Бат", "нас": 20, "хот": "Улаанбаатар", "мэргэжил": "Програмист"}
+
+# pop() аргаар устгах - устгасан элементийн утгыг буцаана
+age = student.pop("нас")  # age = 20
+
+# popitem() аргаар сүүлийн элементийг устгах
+last_item = student.popitem()  # last_item = ('мэргэжил', 'Програмист')
+
+# del түлхүүр үгээр устгах
+del student["хот"]
 
 # buh elementiig ustgah 
 student.clear() # {}
-#
-# 
-# 
-# 
-# 
-#
-#
-#
-#
+
+
 
 
 student = {
@@ -64,17 +79,28 @@ student = {
 # buh tulhuuriig avah
 keys = student.keys() # dict_keys('ner', )
 
+student = {"нэр": "Бат", "нас": 20, "хот": "Улаанбаатар"}
 
-
-# 
-# 
-#
-#
-#
-#
-#
-#
-
+# Бүх түлхүүрийг авах
+keys = student.keys()  # dict_keys(['нэр', 'нас', 'хот'])
+# Бүх утгыг авах
+values = student.values()  # dict_values(['Бат', 20, 'Улаанбаатар'])
+# Бүх түлхүүр-утга хослолыг авах
+items = (
+    student.items()
+)  # dict_items([('нэр', 'Бат'), ('нас', 20), ('хот', 'Улаанбаатар')])
+# Жагсаалт болгох
+keys_list = list(student.keys())  # ['нэр', 'нас', 'хот']
+# Түлхүүр шалгах
+student = {"нэр": "Бат", "нас": 20, "хот": "Улаанбаатар"}
+# in операторыг ашиглах
+has_name = "нэр" in student  # True
+has_email = "имэйл" in student  # False
+# Түлхүүр байхгүй бол анхны утга оноох
+email = student.setdefault("имэйл", "bat@example.com")  # "bat@example.com"
+print(
+    student
+)  # {'нэр': 'Бат', 'нас': 20, 'хот': 'Улаанбаатар', 'имэйл': 'bat@example.com'}
 
 # toli bichgiig davhtah 
 student = {
@@ -131,20 +157,42 @@ print(sorted_dict)  ##########
 
 
 # toli bichgiin oilgolt (dictionary comprehension
-#
-#
-#
-# 
-# ugugdsun jagsaaltaas toli bichig uusgeh 
+# Тоо болон тооны квадратыг агуулсан толь бичиг
+squares = {x: x**2 for x in range(1, 6)}
+print(squares)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
+#Нөхцөлтэй толь бичгийн ойлголт
+even_squares = {x: x**2 for x in range(1, 11) if x % 2 == 0}
+print(even_squares)  # {2: 4, 4: 16, 6: 36, 8: 64, 10: 100
+# Өгөгдсөн жагсаалтаас толь бичиг үүсгэх
+names = ["Бат", "Болд", "Сараа", "Туяа"]
+name_lengths = {name: len(name) for name in names}
+print(name_lengths)  # {'Бат': 3, 'Болд': 4, 'Сараа': 5, 'Туяа': 4}
+# Сурагчдын мэдээлэл агуулсан давхар толь бичиг
+students = {
+    "s001": {
+        "нэр": "Бат",
+        "нас": 20,
+        "хичээлүүд": ["Математик", "Физик", "Програмчлал"],
+    },
+    "s002": {
+        "нэр": "Болд",
+        "нас": 21,
+        "хичээлүүд": ["Англи хэл", "Програмчлал", "Дизайн"],
+    },
+}
+ 
+# Давхар толь бичгийн элементэд хандах
+print(students["s001"]["нэр"])  # "Бат"
+print(students["s002"]["хичээлүүд"][0])  # "Англи хэл"
+# Давхар толь бичгийг давтах
+for student_id, info in students.items():
+    print(f"Сурагчийн ID: {student_id}")
+    print(f"Нэр: {info['нэр']}")
+    print(f"Нас: {info['нас']}")
+    print(f"Хичээлүүд: {', '.join(info['хичээлүүд'])}")
+    print()
 
-# suragchdiin medeelel aguulsan davhar toli bichig 
-# 
-# 
-# 
-# 
-# 
-# davhar toli bichgiig davhtah 
 
 
 # exercise 01
@@ -153,8 +201,6 @@ print(sorted_dict)  ##########
 text = "bi chamd hairtai bi chamd hairtai gedgee helmeer baina"
 words = text.split()
 print(words)
-
-
 word_count = {}
 for word in words:
     if word in word_count:
@@ -200,11 +246,15 @@ def word_frequency(text):
     # ugsiin davtamjiig tootsooloh 
     frequency = {}
     for word in words:
-        frequency[word] += 1 
-        
-        
+        if word in frequency:
+            frequency[word] += 1 
+        else:
+            frequency[word] = 1
     return frequency
 
 text = "Bi Python hel surch baina. Python bol mash sonirholtoi herl. Bi Python-g sain surah heregtei."
 freq = word_frequency(text)
 print(freq)
+# {'би': 2, 'python': 3, 'хэл': 2, 'сурч': 1, 'байна': 1, 'бол': 1,
+#  'маш': 1, 'сонирхолтой': 1, 'pythonг': 1, 'сайн': 1, 'сурах': 1, 'хэрэгтэй': 1}
+
