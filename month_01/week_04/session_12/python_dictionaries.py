@@ -200,7 +200,9 @@ def word_frequency(text):
     # ugsiin davtamjiig tootsooloh 
     frequency = {}
     for word in words:
+    #
         frequency[word] += 1 
+    
         
         
     return frequency
